@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import '../styles/globals.css'
+import '../styles/globals.scss'
 
 export default function MyApp({ Component, pageProps }) {
   return (
@@ -16,7 +16,7 @@ export default function MyApp({ Component, pageProps }) {
         <title>My Stange Collection</title>
 
         <link rel="manifest" href="/manifest.json" />
-        {/* <link
+        <link
           href="/icons/favicon-16x16.png"
           rel="icon"
           type="image/png"
@@ -28,7 +28,7 @@ export default function MyApp({ Component, pageProps }) {
           type="image/png"
           sizes="32x32"
         />
-        <link rel="apple-touch-icon" href="/ico/icon.png"></link> */}
+        <link rel="apple-touch-icon" href="/ico/icon.png"></link>
         <meta name="theme-color" content="#FFF" />
       </Head>
       <Component {...pageProps} />
