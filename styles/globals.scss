@@ -1,0 +1,14 @@
+@import "helpers/variables";
+@import "helpers/reset";
+
+html {
+
+    body {
+        width: 100vw;
+        max-width: 576px;
+        height: 100vh;
+        margin: 0 auto;
+        font-size: rem(16);
+        @include font_primary_regular;
+    }
+}
