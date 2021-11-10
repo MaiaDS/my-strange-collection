@@ -17,18 +17,18 @@ export default function MyApp({ Component, pageProps }) {
 
         <link rel="manifest" href="/manifest.json" />
         <link
-          href="/icons/favicon-16.png"
+          href="/icons/favicons/favicon-16.png"
           rel="icon"
           type="image/png"
           sizes="16x16"
         />
         <link
-          href="/icons/favicon-32.png"
+          href="/icons/favicons/favicon-32.png"
           rel="icon"
           type="image/png"
           sizes="32x32"
         />
-        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png"></link>
+        <link rel="apple-touch-icon" href="/icons/favicons/apple-touch-icon.png"></link>
         <meta name="theme-color" content="#FFF" />
       </Head>
       <Component {...pageProps} />

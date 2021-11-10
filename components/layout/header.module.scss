@@ -1,0 +1,14 @@
+@import "/styles/helpers/variables";
+
+.container {
+    background-color: $blue;
+    height: rem(70);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: rem(20);
+
+    button, a {
+        padding: 0;
+    }
+}
