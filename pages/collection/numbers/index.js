@@ -7,7 +7,7 @@ export default function CollectionByNumbers() {
   return (
     <div className={styles.container}>
       <Header mode="numbers"/>
-      <div className={styles.grid}>
+      <section className={styles.grid}>
         {stranges.map((strange) =>
           <Button 
             key={strange.id} 
@@ -15,7 +15,7 @@ export default function CollectionByNumbers() {
             title={strange.id} 
           />
         )}
-      </div>
+      </section>
     </div>
   )
 }

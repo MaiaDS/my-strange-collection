@@ -2,12 +2,12 @@ import styles from './header.module.scss'
 import Button from '../Buttons/Button'
 import Image from 'next/image'
 
-export default function Header({mode}) {
+export default function Header({mode, children}) {
   const checkMode = mode == "numbers" ? "/icons/icoCovers.svg" : "/icons/icoGrid.svg"
   const modePath = mode == "numbers" ? "/collection/covers" : "/collection/numbers"
   return (
     mode == "numbers" || mode == "covers" ?
-      <div className={styles.container}>
+      <header className={styles.container}>
         <Button>
           <Image
             src="/icons/icoInfos.svg"
@@ -24,10 +24,10 @@ export default function Header({mode}) {
             height={22}
           />
         </Button>
-      </div>
+      </header>
     : 
-    <div className={styles.container}>
-      <Button>
+    <header className={styles.container}>
+      <Button onClick={() => Router.back()}>
         <Image
           src="/icons/icoArrow.svg"
           alt=""
@@ -35,6 +35,7 @@ export default function Header({mode}) {
           height={17}
         />
       </Button>
-    </div>
+      {children}
+    </header>
   )
 }
