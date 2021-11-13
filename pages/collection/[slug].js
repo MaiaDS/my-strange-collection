@@ -11,31 +11,29 @@ export default function Strange () {
     const router = useRouter();
     const [infos, setInfos] = useState();
 
-    useEffect( () => {
-        const info = stranges.find(e => e.route === router.query.name);
+    useEffect(() => {
+        const info = stranges.find(e => e.id === router.query.slug);
         setInfos(info);
     }, [router.query])
 
     return (
         <div className={styles.container}>
             <Header>
-                <div className={styles.copyInfos}>
-                    {infos ?
+                {infos && (
+                    <div className={styles.copyInfos}>
                         <Image
                             src={infos.cover} 
                             alt=""
                             width={128}
                             height={190}
                         />
-                    :
-                        null
-                    }
-                    <aside>
-                        <h1>Numéro {infos ? infos.id : null}</h1>
-                        <h2>{infos ? infos.date : null}</h2>
-                        <h3>Côte en bon état : {infos ? infos.rate : null} €</h3>
-                    </aside>
-                </div>
+                        <aside>
+                            <h1>Numéro {infos.id}</h1>
+                            <h2>{infos.date}</h2>
+                            <h3>Côte en bon état : {infos.rate} €</h3>
+                        </aside>
+                    </div>
+                )}
             </Header>
             <section>
                 Ici les exemplaires possédés

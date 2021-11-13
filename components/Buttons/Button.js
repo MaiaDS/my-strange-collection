@@ -1,7 +1,7 @@
 import styles from './buttons.module.scss'
 import Link from 'next/link'
 
-export default function Button({href, title, color, textColor, children}) {
+export default function Button({href, title, color, textColor, children, ...props}) {
 
   const checkedHref = href ? href : "/" ;
   const checkedColor = color ? color : "blue" ;
@@ -20,6 +20,6 @@ export default function Button({href, title, color, textColor, children}) {
             <a className={styles.btn} style={style}>{title}{children}</a>
       </Link>
     :
-      <button className={styles.btn} style={style}>{title}{children}</button>
+      <button {...props} className={styles.btn} style={style}>{title}{children}</button>
   )
 }
