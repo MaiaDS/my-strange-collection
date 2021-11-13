@@ -4,10 +4,11 @@
   width: 90vw;
   margin: 5% auto;
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: rem(8);
 
-  a, button {
+  a,
+  button {
     width: 20vw;
     height: 20vw;
     opacity: 25%;
