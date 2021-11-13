@@ -1,0 +1,24 @@
+@import "/styles/helpers/variables";
+
+.cover,
+.number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cover {
+  padding: 0;
+  object-fit: cover;
+}
+
+.number {
+  padding: rem(15);
+  text-transform: uppercase;
+  text-align: center;
+  width: 20vw;
+  background-color: $blue;
+  color: $white;
+  height: 20vw;
+  @include font_primary_bold;
+}

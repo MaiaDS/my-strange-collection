@@ -15,7 +15,7 @@ export default function Links({
 
   const style = {
     backgroundColor: backgroundColor,
-    background: checkedTextColor,
+    color: checkedTextColor,
   };
 
   return href ? (

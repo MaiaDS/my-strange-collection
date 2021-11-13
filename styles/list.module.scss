@@ -1,15 +1,17 @@
 @import "/styles/helpers/variables";
 
-.container {
+.grid {
+  width: 90vw;
+  margin: 5% auto;
+  display: grid;
+  gap: rem(10);
+}
+
+.header {
   background-color: $blue;
   height: rem(70);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: rem(20);
-
-  button,
-  a {
-    padding: 0;
-  }
 }

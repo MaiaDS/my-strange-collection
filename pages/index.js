@@ -14,7 +14,7 @@ export default function Home() {
           estimation basée sur les données du site internet comicsvf.com en
           2021.
         </p>
-        <Button href="/collection/numbers" title="Ma collection" />
+        <Button href="/collection/" title="Ma collection" />
       </div>
     </div>
   );

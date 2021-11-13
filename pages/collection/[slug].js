@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
 import styles from "../../styles/slug.module.scss";
-import Header from "../../components/layout/Header";
 import stranges from "../../data/stranges";
 import Image from "next/image";
 import Button from "../../components/Buttons/Button";
 import { useEffect, useState } from "react";
+import BackButton from "../../components/Buttons/BackButton";
 
 export default function Strange() {
   const router = useRouter();
@@ -17,7 +17,8 @@ export default function Strange() {
 
   return (
     <div className={styles.container}>
-      <Header>
+      <header>
+        <BackButton />
         {infos && (
           <div className={styles.copyInfos}>
             <Image src={infos.cover} alt="" width={128} height={190} />
@@ -28,7 +29,7 @@ export default function Strange() {
             </aside>
           </div>
         )}
-      </Header>
+      </header>
       <section>Ici les exemplaires possédés</section>
       <Button title="Ajouter" />
     </div>
