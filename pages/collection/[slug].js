@@ -5,6 +5,8 @@ import Image from "next/image";
 import Button from "../../components/Buttons/Button";
 import { useEffect, useState } from "react";
 import BackButton from "../../components/Buttons/BackButton";
+import Copy from "../../components/Strange/Copy";
+import AddPanel from "../../components/Strange/AddPanel";
 
 export default function Strange() {
   const router = useRouter();
@@ -15,23 +17,38 @@ export default function Strange() {
     setInfos(info);
   }, [router.query]);
 
+  const [isDisplay, setDisplay] = useState(false);
+
   return (
     <div className={styles.container}>
-      <header>
-        <BackButton />
-        {infos && (
-          <div className={styles.copyInfos}>
-            <Image src={infos.cover} alt="" width={128} height={190} />
-            <aside>
-              <h1>Numéro {infos.id}</h1>
-              <h2>{infos.date}</h2>
-              <h3>Côte en bon état : {infos.rate} €</h3>
-            </aside>
-          </div>
-        )}
-      </header>
-      <section>Ici les exemplaires possédés</section>
-      <Button title="Ajouter" />
+      {infos && (
+        <>
+          <header>
+            <BackButton />
+            <div className={styles.copyInfos}>
+              <Image src={infos.cover} alt="" width={128} height={190} />
+              <aside>
+                <h1>Numéro {infos.id}</h1>
+                <h2>{infos.date}</h2>
+                <h3>Côte en bon état : {infos.rate} €</h3>
+              </aside>
+            </div>
+          </header>
+
+          <section>
+            <Copy quality="B" rate={infos.rate} />
+          </section>
+
+          <section>
+            <Button title="Ajouter" onClick={() => setDisplay(!isDisplay)} />
+            <AddPanel
+              style={{
+                display: isDisplay ? "flex" : "none",
+              }}
+            />
+          </section>
+        </>
+      )}
     </div>
   );
 }

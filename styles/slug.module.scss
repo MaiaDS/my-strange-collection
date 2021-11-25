@@ -55,13 +55,13 @@
   section {
     width: 88%;
     margin: rem(80) 6%;
-  }
 
-  > button {
-    width: 88%;
-    position: absolute;
-    bottom: rem(30);
-    left: 50%;
-    transform: translateX(-50%);
+    > button {
+      width: 88%;
+      position: absolute;
+      bottom: rem(30);
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 }

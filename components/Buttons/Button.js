@@ -1,7 +1,7 @@
 import styles from "./buttons.module.scss";
 import Link from "next/link";
 
-export default function Links({
+export default function Button({
   href,
   title,
   background,
