@@ -1,9 +1,9 @@
 import styles from "../../styles/list.module.scss";
-import Strange from "../../components/Strange/Strange";
+import StrangeItem from "../../components/Strange/StrangeItem";
 import IcoButton from "../../components/Buttons/IcoButton";
 import Image from "next/image";
 import stranges from "../../data/stranges";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function CollectionList() {
   const [isCoverDisplay, setCoverDisplay] = useState(false);
@@ -17,10 +17,22 @@ export default function CollectionList() {
     gridTemplateColumns: gridColumns,
   };
 
+  const [strangeCollection, setStrangeCollection] = useState([]);
+  useEffect(() => {
+    let strangeCollection = JSON.parse(
+      window.localStorage.getItem("strangeCollection")
+    );
+    if (strangeCollection === null) {
+      window.localStorage.setItem("strangeCollection", "[]");
+      strangeCollection = [];
+    }
+    setStrangeCollection(strangeCollection);
+  }, []);
+
   return (
     <>
       <header className={styles.header}>
-        <IcoButton>
+        <IcoButton href="/infos">
           <Image src="/icons/icoInfos.svg" alt="" width={22} height={22} />
         </IcoButton>
         <IcoButton onClick={() => setCoverDisplay(!isCoverDisplay)}>
@@ -30,17 +42,20 @@ export default function CollectionList() {
 
       <section className={styles.grid} style={gridTemplate}>
         {stranges.map((strange) => (
-          <Strange
+          <StrangeItem
             key={strange.id}
             href={`/collection/${encodeURIComponent(strange.id)}`}
             display={isCoverDisplay}
+            isOwned={strangeCollection.find(
+              (item) => item.idStrange === strange.id
+            )}
           >
             {isCoverDisplay ? (
               <Image src={strange.cover} alt="" width={190} height={280} />
             ) : (
               strange.id
             )}
-          </Strange>
+          </StrangeItem>
         ))}
       </section>
     </>

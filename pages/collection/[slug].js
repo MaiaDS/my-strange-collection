@@ -5,19 +5,46 @@ import Image from "next/image";
 import Button from "../../components/Buttons/Button";
 import { useEffect, useState } from "react";
 import BackButton from "../../components/Buttons/BackButton";
-import Copy from "../../components/Strange/Copy";
-import AddPanel from "../../components/Strange/AddPanel";
+import CopyDetails from "../../components/Strange/CopyDetails";
+import AddPanel from "../../components/AddPanel/AddPanel";
 
 export default function Strange() {
   const router = useRouter();
   const [infos, setInfos] = useState();
+  const [ownedCopies, setOwnedCopies] = useState([]);
 
   useEffect(() => {
     const info = stranges.find((e) => e.id === router.query.slug);
     setInfos(info);
   }, [router.query]);
 
-  const [isDisplay, setDisplay] = useState(false);
+  useEffect(() => {
+    let strangeCollection = JSON.parse(
+      window.localStorage.getItem("strangeCollection")
+    );
+    setOwnedCopies(strangeCollection);
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem(
+      "strangeCollection",
+      JSON.stringify(ownedCopies)
+    );
+  }, [ownedCopies]);
+
+  const [isPanelDisplayed, setPanelDisplay] = useState(false);
+
+  const addOwnedCopies = (copy) => {
+    setOwnedCopies([...ownedCopies, copy]);
+  };
+
+  const removeOwnedCopies = (copyID) => {
+    setOwnedCopies(ownedCopies.filter((item) => item.id !== copyID));
+  };
+
+  const filteredCollection = ownedCopies.filter(
+    (copy) => copy.idStrange === infos.id
+  );
 
   return (
     <div className={styles.container}>
@@ -30,21 +57,36 @@ export default function Strange() {
               <aside>
                 <h1>Numéro {infos.id}</h1>
                 <h2>{infos.date}</h2>
-                <h3>Côte en bon état : {infos.rate} €</h3>
               </aside>
             </div>
           </header>
 
-          <section>
-            <Copy quality="B" rate={infos.rate} />
+          <section className={styles.ownedCopies}>
+            {filteredCollection.length !== 0 ? (
+              <>
+                {filteredCollection.map((copy) => (
+                  <CopyDetails
+                    key={copy.id}
+                    copyID={copy.id}
+                    state={copy.idState}
+                    updateOwnedCopies={removeOwnedCopies}
+                  />
+                ))}
+              </>
+            ) : (
+              <p>Pas d&apos;exemplaires possédés</p>
+            )}
           </section>
 
           <section>
-            <Button title="Ajouter" onClick={() => setDisplay(!isDisplay)} />
+            <Button title="Ajouter" onClick={() => setPanelDisplay(true)} />
             <AddPanel
               style={{
-                display: isDisplay ? "flex" : "none",
+                display: isPanelDisplayed ? "flex" : "none",
               }}
+              onClose={() => setPanelDisplay(false)}
+              strangeID={infos.id}
+              updateOwnedCopies={addOwnedCopies}
             />
           </section>
         </>

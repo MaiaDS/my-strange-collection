@@ -2,37 +2,41 @@ import IcoButton from "../Buttons/IcoButton";
 import styles from "./strange.module.scss";
 import Image from "next/image";
 
-export default function Copy({ state, rate }) {
-  let price;
+export default function CopyDetails({ copyID, state, updateOwnedCopies }) {
+  const deleteCopy = (copyID) => {
+    updateOwnedCopies(copyID);
+  };
+
   let quality;
   switch (state) {
     case "N":
-      price = rate * 1.7;
       quality = "Neuf";
       break;
+    case "E":
+      quality = "Excellent";
+      break;
     case "TB":
-      price = rate * 1.35;
       quality = "Très bon état";
       break;
     case "M":
-      price = rate * 0.75;
       quality = "Moyen";
       break;
     case "A":
-      price = rate * 0.3;
       quality = "Abîmé";
       break;
+    case "NC":
+      quality = "Non Collectionnable";
+      break;
     default:
-      price = rate;
       quality = "Bon état";
   }
 
   return (
     <div className={styles.copy}>
-      <IcoButton>
+      <IcoButton onClick={() => deleteCopy(copyID)}>
         <Image src="/icons/icoDelete.svg" alt="" width={18} height={18} />
       </IcoButton>
-      {quality} - {price} €
+      {quality}
     </div>
   );
 }

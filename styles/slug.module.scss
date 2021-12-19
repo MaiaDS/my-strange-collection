@@ -6,11 +6,7 @@
   header {
     position: relative;
     height: rem(200);
-    display: flex;
     align-items: flex-start;
-    background-color: $blue;
-    justify-content: space-between;
-    padding: rem(20);
 
     .copyInfos {
       position: absolute;
@@ -34,19 +30,16 @@
         h2 {
           color: $blue;
           @include font_primary_bold();
+          text-transform: initial;
         }
 
         h1 {
           font-size: rem(20);
+          margin-bottom: rem(8);
         }
 
         h2 {
           font-size: rem(15);
-        }
-
-        h3 {
-          font-size: rem(12);
-          margin-top: rem(10);
         }
       }
     }
@@ -54,7 +47,22 @@
 
   section {
     width: 88%;
-    margin: rem(80) 6%;
+    margin: rem(85) 6%;
+
+    &.ownedCopies {
+      max-height: 42vh;
+      overflow-y: scroll;
+
+      > p {
+        text-transform: uppercase;
+        @include font_primary_bold;
+        text-align: center;
+      }
+
+      > div {
+        margin-bottom: rem(15);
+      }
+    }
 
     > button {
       width: 88%;
