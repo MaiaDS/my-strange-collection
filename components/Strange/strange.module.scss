@@ -21,6 +21,11 @@
   color: $white;
   height: 20vw;
   @include font_primary_bold;
+
+  @media #{$desktop} {
+    width: 7vw;
+    height: 7vw;
+  }
 }
 
 .copy {

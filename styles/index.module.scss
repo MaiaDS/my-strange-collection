@@ -4,6 +4,11 @@
   position: relative;
   overflow: hidden;
 
+  @media #{$desktop} {
+    width: 100vw;
+    height: 100vh;
+  }
+
   &::before {
     display: block;
     content: "";
@@ -29,6 +34,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media #{$desktop} {
+      width: 50vw;
+      height: 50vh;
+      margin: auto;
+      transform: translateY(50%);
+    }
 
     p {
       margin: rem(20) 0;

@@ -11,11 +11,22 @@
     position: absolute;
     bottom: 0;
     left: 0;
+
+    @media #{$desktop} {
+      left: rem(480);
+      width: 60%;
+      height: 66vh;
+      z-index: 15;
+    }
   
     > div {
       display: flex;
       flex-direction: column;
       width: 100%;
+
+      @media #{$desktop} {
+        margin-bottom: rem(30);
+      }
   
       * {
         width: 100%;
