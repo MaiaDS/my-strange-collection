@@ -1,0 +1,30 @@
+@import "helpers/variables";
+
+.container {
+   h1 {
+    color: $white;
+    text-transform: uppercase;
+    @include font_primary_bold ;
+   }
+
+   section {
+      width: 88%;
+      margin: rem(25) 6%;
+
+      article {
+         margin-bottom: rem(30);
+
+         a {
+            margin-left: rem(5);
+            color: $blue;
+            text-decoration: underline;
+         }
+
+         li {
+            margin-bottom: rem(6);
+         }
+      }
+
+      
+   }
+}

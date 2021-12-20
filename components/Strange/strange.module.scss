@@ -1,0 +1,41 @@
+@import "/styles/helpers/variables";
+
+.cover,
+.number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cover {
+  padding: 0;
+  object-fit: cover;
+}
+
+.number {
+  padding: rem(15);
+  text-transform: uppercase;
+  text-align: center;
+  width: 20vw;
+  background-color: $blue;
+  color: $white;
+  height: 20vw;
+  @include font_primary_bold;
+
+  @media #{$desktop} {
+    width: 7vw;
+    height: 7vw;
+  }
+}
+
+.copy {
+  border: 1px solid $blue;
+  padding: rem(15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include font_primary_regular;
+  color: $blue;
+  font-size: rem(12);
+  text-transform: uppercase;
+}

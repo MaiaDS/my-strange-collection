@@ -1,0 +1,66 @@
+// COLORS
+$blue: #0045b2;
+$black: #000;
+$white: #fff;
+$grey: #6f7070;
+$sucess: #00893a;
+$error: #ba0c0c;
+
+// SIZE
+$browser-context: 16; // Default
+@use "sass:math";
+@function rem($pixels, $context: $browser-context) {
+  @return #{math.div($pixels, $context)}rem;
+}
+
+// FONTS
+@font-face {
+  font-family: "Overpass-Regular";
+  src: url("/public/fonts/Overpass-Regular.otf") format("otf"),
+    url("/public/fonts/Overpass-Regular.woff") format("woff");
+  font-weight: 400;
+}
+
+@mixin font_primary_regular() {
+  font-family: "Overpass-Regular", sans-serif;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Overpass-Bold";
+  src: url("/public/fonts/Overpass-Bold.otf") format("otf"),
+    url("/public/fonts/Overpass-Bold.woff") format("woff");
+  font-weight: 700;
+}
+
+@mixin font_primary_bold() {
+  font-family: "Overpass-Bold", sans-serif;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "OpenSans-Regular";
+  src: url("/public/fonts/OpenSans-Regular.otf") format("otf"),
+    url("/public/fonts/OpenSans-Regular.woff") format("woff");
+  font-weight: 400;
+}
+
+@mixin font_secondary_regular() {
+  font-family: "OpenSans-Regular", sans-serif;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "OpenSans-Italic";
+  src: url("/public/fonts/OpenSans-Italic.otf") format("otf"),
+    url("/public/fonts/OpenSans-Italic.woff") format("woff");
+  font-weight: 400;
+}
+
+@mixin font_secondary_italic() {
+  font-family: "OpenSans-Italic", sans-serif;
+  font-weight: 400;
+}
+
+// Responsive 
+$desktop: "screen and ( min-width: 769px )";

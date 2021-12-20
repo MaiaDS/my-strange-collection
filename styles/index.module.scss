@@ -1,0 +1,50 @@
+@import "helpers/variables";
+
+.container {
+  position: relative;
+  overflow: hidden;
+
+  @media #{$desktop} {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  &::before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 15%;
+    z-index: -1;
+    background-image: url("../public/covers/strange01.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  > div {
+    margin: 10vh rem(30);
+    background-color: $white;
+    padding: rem(45);
+    width: 85vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media #{$desktop} {
+      width: 50vw;
+      height: 50vh;
+      margin: auto;
+      transform: translateY(50%);
+    }
+
+    p {
+      margin: rem(20) 0;
+      @include font_secondary_regular;
+    }
+  }
+}

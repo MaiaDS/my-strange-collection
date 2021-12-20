@@ -1,0 +1,19 @@
+@import "/styles/helpers/variables";
+
+.grid {
+  width: 90vw;
+  margin: 5% auto;
+  display: grid;
+  gap: rem(10);
+
+  @media #{$desktop} {
+    grid-template-columns: repeat(10,1fr) !important;
+    gap: rem(20);
+  
+  }
+}
+
+.header {
+  height: rem(70);
+  align-items: center;
+}

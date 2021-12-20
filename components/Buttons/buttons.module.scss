@@ -1,0 +1,20 @@
+@import "/styles/helpers/variables";
+
+.btn {
+  padding: rem(15);
+  text-transform: uppercase;
+  text-align: center;
+  @include font_primary_bold;
+}
+
+.btnIco {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.link {
+  text-decoration: underline;
+  @include font_primary_regular;
+}

@@ -1,0 +1,106 @@
+@import "helpers/variables";
+
+.container {
+  height: 100vh;
+
+  header {
+    position: relative;
+    height: rem(200);
+    align-items: flex-start;
+
+    .copyInfos {
+      position: absolute;
+      top: rem(65);
+      left: 6%;
+      width: 88%;
+      display: flex;
+      justify-content: space-between;
+      min-height: rem(190);
+
+      @media #{$desktop} {
+        justify-content: flex-start;
+      }
+
+      img {
+        min-width: rem(128);
+
+        @media #{$desktop} {
+          min-height: 80vh;
+        }
+    
+      }
+
+      aside {
+        background-color: $white;
+        padding: rem(20);
+        width: rem(180);
+
+        @media #{$desktop} {
+          margin-left: rem(20);
+          max-height: rem(175);
+          width: 70%;
+        }
+
+        h1,
+        h2 {
+          color: $blue;
+          @include font_primary_bold();
+          text-transform: initial;
+        }
+
+        h1 {
+          font-size: rem(20);
+          margin-bottom: rem(8);
+        }
+
+        h2 {
+          font-size: rem(15);
+        }
+      }
+    }
+  }
+
+  section {
+    width: 88%;
+    margin: rem(85) 6%;
+
+    &.ownedCopies {
+      max-height: 42vh;
+      overflow-y: scroll;
+
+      @media #{$desktop} {
+        width: 60%;
+        position: absolute;
+        top: rem(240);
+        left: rem(480);
+        margin: 0;
+        max-height: 40vh;
+      }
+
+      > p {
+        text-transform: uppercase;
+        @include font_primary_bold;
+        text-align: center;
+      }
+
+      > div {
+        margin-bottom: rem(15);
+      }
+    }
+
+    > button {
+      width: 88%;
+      position: absolute;
+      bottom: rem(30);
+      left: 50%;
+      transform: translateX(-50%);
+
+      @media #{$desktop} {
+        width: 60%;
+        left: rem(480);
+        bottom: rem(75);
+        transform: unset;
+      }
+    }
+  }
+}

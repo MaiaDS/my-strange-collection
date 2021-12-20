@@ -1,0 +1,61 @@
+@import "/styles/helpers/variables";
+
+.addPanel {
+    background-color: $blue;
+    height: 58vh;
+    width: 100vw;
+    padding: 6%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    @media #{$desktop} {
+      left: rem(480);
+      width: 60%;
+      height: 66vh;
+      z-index: 15;
+    }
+  
+    > div {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      @media #{$desktop} {
+        margin-bottom: rem(30);
+      }
+  
+      * {
+        width: 100%;
+      }
+  
+      select {
+        padding: rem(15);
+        color: $blue;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: url("../../public/icons/icoChevronBlue.svg");
+        background-repeat: no-repeat;
+        background-size: rem(15);
+        background-position: center right rem(15);
+        background-color: $white;
+
+        option {
+          text-transform: capitalize;
+        }
+      }
+  
+      a {
+        text-align: end;
+        margin: rem(10) 0;
+      }
+  
+      button {
+        margin-top: rem(30);
+      }
+    }
+}
