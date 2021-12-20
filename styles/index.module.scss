@@ -35,6 +35,10 @@
     flex-direction: column;
     justify-content: space-between;
 
+    h1 {
+      display: none;
+    }
+
     @media #{$desktop} {
       width: 50vw;
       height: 50vh;
@@ -45,6 +49,7 @@
     p {
       margin: rem(20) 0;
       @include font_secondary_regular;
+      text-align: center;
     }
   }
 }
