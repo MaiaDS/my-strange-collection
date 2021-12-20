@@ -16,22 +16,25 @@ export default function MyApp({ Component, pageProps }) {
         <title>My Stange Collection</title>
 
         <link rel="manifest" href="/manifest.json" />
+
         <link
-          href="/icons/favicons/favicon-16.png"
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/icons/favicons/apple-touch-icon.png"
         />
         <link
-          href="/icons/favicons/favicon-32.png"
           rel="icon"
           type="image/png"
           sizes="32x32"
+          href="/icons/favicons/favicon-32x32.png"
         />
         <link
-          rel="apple-touch-icon"
-          href="/icons/favicons/apple-touch-icon.png"
-        ></link>
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/icons/favicons/favicon-16x16.png"
+        />
+
         <meta name="theme-color" content="#FFF" />
       </Head>
       <Component {...pageProps} />
