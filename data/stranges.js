@@ -5,7 +5,7 @@ const stranges = [
     date: "Janv. 1970",
   },
   {
-    id: "1 - 2ième édition",
+    id: "1*",
     cover: "/covers/strange01.jpg",
     date: "Déc. 1990",
   },
